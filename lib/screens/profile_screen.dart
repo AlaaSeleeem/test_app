@@ -85,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                             buttonColor: lightRed,
                             action: () {
                               showDialog<String>(
-                                context: context,
+                                context: myContext,
                                 builder: (BuildContext context) => AlertDialog(
                                   title: const Text('Delete Profile'),
                                   content: const Text(
