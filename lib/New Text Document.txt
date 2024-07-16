@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 edit
+=======
+text
+>>>>>>> f6ab0797afd2c65817b3252db8d72fcc8c276bbf
+
+
+"accepted"
