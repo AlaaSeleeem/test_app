@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../shared/Themes/Texts.dart';
 import '../shared/Themes/colors.dart';
+import 'wedgets/group_items.dart';
 
 class GroupsScreen extends StatelessWidget {
   const GroupsScreen({super.key});
@@ -19,7 +20,18 @@ class GroupsScreen extends StatelessWidget {
           color: orange,
         ),
       ),
-      body: Center(),
+      body: GridView.builder(
+        itemCount: 6,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 10),
+        itemBuilder: (BuildContext context, index) {
+          return GroupItem();
+        },
+        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+        primary: false,
+        padding: const EdgeInsets.symmetric(vertical: 20),
+      ),
     );
   }
 }
