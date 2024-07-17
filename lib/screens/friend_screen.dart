@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_network_app/shared/Themes/Texts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../shared/Themes/colors.dart';
@@ -55,7 +56,7 @@ class FriendScreen extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 4, 107, 129)),
+                          color: white),
                     ),
                     SizedBox(
                       height: 30,
@@ -64,6 +65,132 @@ class FriendScreen extends StatelessWidget {
                         title: 'Add To Group',
                         icon: Icons.add,
                         action: () {
+                          showModalBottomSheet<void>(
+                            backgroundColor: transperent,
+                            context: myContext,
+                            builder: (BuildContext context) {
+                              return Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        topRight: Radius.circular(20)),
+                                    border: Border.all(
+                                      color: blue,
+                                      width: 3,
+                                    ),
+                                    color: blue),
+                                height: 300,
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    // mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 20),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Navigator.pop(myContext);
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(9)),
+                                              color: gray,
+                                            ),
+                                            width: 75,
+                                            height: 12,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: SingleChildScrollView(
+                                          physics: BouncingScrollPhysics(),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: 12, left: 16),
+                                            child: SizedBox(
+                                              width: double.infinity,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      print(
+                                                          'work button was pressed');
+                                                    },
+                                                    child: Text(
+                                                      '. Work',
+                                                      style: h3,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 16,
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      print(
+                                                          'Collage button was pressed');
+                                                    },
+                                                    child: Text(
+                                                      '. Collage',
+                                                      style: h3,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 16,
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      print(
+                                                          'Club button was pressed');
+                                                    },
+                                                    child: Text(
+                                                      '. Club',
+                                                      style: h3,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 16,
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      print(
+                                                          'Event button was pressed');
+                                                    },
+                                                    child: Text(
+                                                      '. Event',
+                                                      style: h3,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 16,
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      print(
+                                                          'Family button was pressed');
+                                                    },
+                                                    child: Text(
+                                                      '. Family',
+                                                      style: h3,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 16,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          );
                           print('Frind Added to Group');
                         }),
                     SizedBox(
@@ -74,17 +201,13 @@ class FriendScreen extends StatelessWidget {
                       children: [
                         Text(
                           '00201147617485',
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Color.fromARGB(255, 14, 107, 129)),
+                          style: TextStyle(fontSize: 20, color: gray),
                         ),
                         SizedBox(
                           height: 30,
                         ),
                         IconButton(
-                          icon: Icon(Icons.phone,
-                              size: 30,
-                              color: Color.fromARGB(255, 14, 107, 129)),
+                          icon: Icon(Icons.phone, size: 30, color: gray),
                           onPressed: () {
                             launchUrl(phoneNumber);
                           },

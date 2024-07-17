@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:my_network_app/shared/Themes/Texts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -84,28 +85,20 @@ class ProfileScreen extends StatelessWidget {
                             title: 'Delete profile',
                             buttonColor: lightRed,
                             action: () {
-                              showDialog<String>(
+                              AwesomeDialog(
                                 context: myContext,
-                                builder: (BuildContext context) => AlertDialog(
-                                  title: const Text('Delete Profile'),
-                                  content: const Text(
-                                      'Are you sure you want to delete your profile ?'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(context, 'Cancel'),
-                                      child: const Text('Cancel'),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context, 'OK');
-                                        print('Delete Profile');
-                                      },
-                                      child: const Text('OK'),
-                                    ),
-                                  ],
-                                ),
-                              );
+                                titleTextStyle:
+                                    h5Bold.merge(TextStyle(color: black)),
+                                dialogType: DialogType.warning,
+                                animType: AnimType.rightSlide,
+                                title: 'Delete Profile',
+                                desc:
+                                    'Are you sure that you want to delete Profile ?',
+                                btnCancelOnPress: () {},
+                                btnOkOnPress: () {
+                                  print('Delete My profile');
+                                },
+                              ).show();
                             }),
                       ],
                     ),
