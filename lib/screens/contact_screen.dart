@@ -3,6 +3,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../shared/Themes/colors.dart';
 import '../shared/Widgets/action_button.dart';
+import '../shared/Widgets/back_button.dart';
+import '../shared/Widgets/botton_Nav_Bar.dart';
 import 'wedgets/screenWedgets.dart';
 
 class ContactScreen extends StatelessWidget {
@@ -30,11 +32,11 @@ class ContactScreen extends StatelessWidget {
         minimum: EdgeInsets.zero,
         child: Scaffold(
           appBar: AppBar(
-            leading: Icon(
-              Icons.arrow_back,
-              color: orange,
-        ),
-      ),
+            title: Text(
+              'Contact',
+            ),
+            leading: MyBackButton(),
+          ),
           body: SizedBox(
             width: double.infinity,
             child: SingleChildScrollView(
@@ -60,7 +62,12 @@ class ContactScreen extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    ActionButtonWithIcon(title:'Add To My Network', icon: Icons.add, action: (){print('Contact Added to network');}),
+                    ActionButtonWithIcon(
+                        title: 'Add To My Network',
+                        icon: Icons.add,
+                        action: () {
+                          print('Contact Added to network');
+                        }),
                     SizedBox(
                       height: 30,
                     ),
@@ -107,6 +114,9 @@ class ContactScreen extends StatelessWidget {
                     ),
                   ]),
             ),
+          ),
+          bottomNavigationBar: BottonNavBar(
+            selectedItemColor: gray,
           ),
         ));
   }

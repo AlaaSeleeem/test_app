@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 var navy = Color.fromARGB(255, 3, 7, 30);
+var bottonNavBar = Color.fromARGB(191, 3, 7, 30);
 var white = Colors.white;
 var black = Colors.black;
 var gray = Color.fromARGB(255, 144, 144, 144);

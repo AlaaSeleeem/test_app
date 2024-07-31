@@ -4,23 +4,40 @@ import 'package:my_network_app/shared/Themes/colors.dart';
 
 class ActionButton extends StatelessWidget {
   ActionButton(
-      {super.key, required this.title, required this.action, this.buttonColor});
+      {super.key,
+      required this.title,
+      required this.action,
+      this.buttonColor,
+      this.buttonWidth,
+      this.buttonHight,
+      this.titleStyle});
   String title;
   Color? buttonColor;
   Function() action;
+  double? buttonWidth;
+  double? buttonHight;
+  TextStyle? titleStyle;
+
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: action,
-      style: ButtonStyle(
-        backgroundColor:MaterialStateProperty.all(buttonColor??orange) ,
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(100),
+    return SizedBox(
+      height: buttonHight,
+      width: buttonWidth,
+      child: ElevatedButton(
+        onPressed: action,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(buttonColor ?? orange),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(100),
+            ),
           ),
         ),
+        child: Text(
+          title,
+          style: titleStyle,
+        ),
       ),
-      child: Text(title),
     );
   }
 }
@@ -42,13 +59,12 @@ class ActionButtonWithIcon extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: action,
       style: ButtonStyle(
-        backgroundColor:MaterialStateProperty.all(buttonColor??orange) ,
+        backgroundColor: MaterialStateProperty.all(buttonColor ?? orange),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
           ),
         ),
-        
       ),
       icon: Icon(
         icon,

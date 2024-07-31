@@ -1,10 +1,16 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_network_app/screens/screens.dart';
 import 'package:my_network_app/shared/Themes/Texts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../shared/Themes/colors.dart';
 import '../shared/Widgets/action_button.dart';
+//import '../shared/Widgets/back_button.dart';
+import '../shared/Widgets/back_button.dart';
+import '../shared/Widgets/botton_Nav_Bar.dart';
+import '../shared/methods/navigation.dart';
 import 'wedgets/screenWedgets.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -22,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
   };
 
   @override
-  Widget build(BuildContext myContext) {
+  Widget build(BuildContext context) {
     return SafeArea(
         bottom: true,
         left: true,
@@ -34,12 +40,9 @@ class ProfileScreen extends StatelessWidget {
           appBar: AppBar(
             title: Text(
               'My profile',
-              style: title1,
+              
             ),
-            leading: Icon(
-              Icons.arrow_back,
-              color: orange,
-            ),
+            leading: MyBackButton(),
           ),
           body: SizedBox(
             width: double.infinity,
@@ -86,7 +89,7 @@ class ProfileScreen extends StatelessWidget {
                             buttonColor: lightRed,
                             action: () {
                               AwesomeDialog(
-                                context: myContext,
+                                context: context,
                                 titleTextStyle:
                                     h5Bold.merge(TextStyle(color: black)),
                                 dialogType: DialogType.warning,
@@ -149,6 +152,9 @@ class ProfileScreen extends StatelessWidget {
                   ]),
             ),
           ),
+            bottomNavigationBar: BottonNavBar(
+            ),
+            extendBody: true,
         ));
   }
 }

@@ -4,6 +4,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../shared/Themes/colors.dart';
 import '../shared/Widgets/action_button.dart';
+import '../shared/Widgets/back_button.dart';
+import '../shared/Widgets/botton_Nav_Bar.dart';
 import 'wedgets/socialMediaIcon.dart';
 
 class FriendScreen extends StatelessWidget {
@@ -31,10 +33,10 @@ class FriendScreen extends StatelessWidget {
         minimum: EdgeInsets.zero,
         child: Scaffold(
           appBar: AppBar(
-            leading: Icon(
-              Icons.arrow_back,
-              color: orange,
+            title: Text(
+              'Friend',
             ),
+            leading: MyBackButton(),
           ),
           body: SizedBox(
             width: double.infinity,
@@ -236,6 +238,9 @@ class FriendScreen extends StatelessWidget {
                   ]),
             ),
           ),
-        ));
+          bottomNavigationBar: BottonNavBar(
+            selectedItemColor: gray,
+          ),
+       extendBody: true, ));
   }
 }

@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:my_network_app/screens/Login/signup_screen.dart';
-import 'package:my_network_app/shared/Widgets/action_button.dart';
 
 import '../../shared/Themes/Texts.dart';
 import '../../shared/Themes/colors.dart';
+import '../../shared/Widgets/action_button.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
-
-  var email = TextEditingController();
-
-  var password = TextEditingController();
-
+class CreatProfile extends StatelessWidget {
+  CreatProfile({super.key});
   var formKey = GlobalKey<FormState>();
-
-  var passwordNode = FocusNode();
-
-  bool isHidden = true;
+  var phoneNumberNode = FocusNode();
+  var name = TextEditingController();
+  var phoneNumber = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +20,7 @@ class LoginScreen extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             title: Text(
-              'login',
+              'Creat User',
             ),
           ),
           body: SingleChildScrollView(
@@ -39,19 +32,19 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Email text field
+                    // user name text field
                     TextFormField(
                       onFieldSubmitted: (value) {
-                        FocusScope.of(context).requestFocus(passwordNode);
+                        FocusScope.of(context).requestFocus(phoneNumberNode);
                       },
                       validator: (value) {
                         if ((value == null || value.isEmpty)) {
-                          return "Email can't be empty";
+                          return "user name can't be empty";
                         }
                         return null;
                       },
-                      controller: email,
-                      keyboardType: TextInputType.emailAddress,
+                      controller: name,
+                      keyboardType: TextInputType.name,
                       cursorColor: white,
                       style: title1,
                       decoration: InputDecoration(
@@ -63,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                               borderSide:
                                   BorderSide(width: 2, color: lightRed)),
                           label: Text(
-                            'enter a valid email',
+                            'enter a valid name',
                             style: title1.merge(TextStyle(color: gray)),
                           ),
                           // hintText: 'enter the phone number',
@@ -78,37 +71,21 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    // password text field
+                    // phone number text field
                     StatefulBuilder(
                       builder: (context, setState) => TextFormField(
-                        focusNode: passwordNode,
+                        focusNode: phoneNumberNode,
                         validator: (value) {
                           if ((value == null || value.isEmpty)) {
-                            return "Password can't be empty";
+                            return "Phone number can't be empty";
                           }
                           return null;
                         },
-                        controller: password,
-                        obscureText: isHidden,
+                        controller: phoneNumber,
                         keyboardType: TextInputType.visiblePassword,
                         cursorColor: white,
                         style: title1,
                         decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                              icon: isHidden == true
-                                  ? Icon(
-                                      Icons.lock,
-                                      color: gray,
-                                    )
-                                  : Icon(
-                                      Icons.lock_open,
-                                      color: gray,
-                                    ),
-                              onPressed: () {
-                                isHidden = !isHidden;
-                                setState(() {});
-                              },
-                            ),
                             focusedErrorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
                                 borderSide: BorderSide(width: 2, color: gray)),
@@ -116,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20),
                                 borderSide:
                                     BorderSide(width: 2, color: lightRed)),
-                            label: Text('enter a password',
+                            label: Text('enter a phon number',
                                 style: title1.merge(TextStyle(color: gray))),
 
                             // hintText: 'enter the phone number',
@@ -134,64 +111,18 @@ class LoginScreen extends StatelessWidget {
                       height: 20,
                     ),
                     ActionButton(
-                      title: 'login',
+                      title: 'creat',
                       buttonHight: 60,
                       titleStyle: h5Bold,
                       action: () {
                         if (formKey.currentState!.validate()) {
                           print('====================================');
-                          print(email.text);
+                          print(name.text);
                           print('====================================');
-                          print(password.text);
+                          print(phoneNumber.text);
                         }
                       },
                       buttonWidth: double.infinity,
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Forget my bassword',
-                            style: title2.merge(TextStyle(color: gray)),
-                          )),
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    ActionButton(
-                        title: 'login with google',
-                        buttonHight: 60,
-                        titleStyle: h5Bold,
-                        action: () {},
-                        buttonWidth: double.infinity),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    ActionButton(
-                        title: 'login with facebook',
-                        buttonHight: 60,
-                        titleStyle: h5Bold,
-                        action: () {},
-                        buttonWidth: double.infinity),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: TextButton(
-                          onPressed: () { Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: ((context) => SignupScreen()),
-                              ),
-                            );
-
-                          },
-                          child: Text(
-                            'dont have an account?',
-                            style: title2.merge(TextStyle(color: gray)),
-                          )),
                     ),
                   ],
                 ),

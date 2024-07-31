@@ -3,7 +3,11 @@ import 'package:my_network_app/shared/Themes/Texts.dart';
 import 'package:my_network_app/shared/Themes/colors.dart';
 
 var appTheme = ThemeData(
-    appBarTheme: AppBarTheme(backgroundColor: transperent),
+    appBarTheme: AppBarTheme(
+      backgroundColor: transperent,
+      titleTextStyle: h5Bold,
+      titleSpacing: 0,
+    ),
     floatingActionButtonTheme:
         FloatingActionButtonThemeData(backgroundColor: orange),
     scaffoldBackgroundColor: navy,
