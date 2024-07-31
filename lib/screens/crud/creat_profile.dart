@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/Themes/Texts.dart';
@@ -114,12 +115,16 @@ class CreatProfile extends StatelessWidget {
                       title: 'creat',
                       buttonHight: 60,
                       titleStyle: h5Bold,
-                      action: () {
+                      action: () async {
                         if (formKey.currentState!.validate()) {
-                          print('====================================');
-                          print(name.text);
-                          print('====================================');
-                          print(phoneNumber.text);
+                          var user = {
+                            'name': name.text,
+                            'phone': phoneNumber.text
+                          };
+                          await FirebaseFirestore.instance
+                              .collection('users')
+                              .doc('Alaa')
+                              .set(user);
                         }
                       },
                       buttonWidth: double.infinity,

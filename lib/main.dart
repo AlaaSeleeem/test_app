@@ -4,7 +4,6 @@ import 'package:my_network_app/shared/Themes/theme.dart';
 
 import 'firebase_options.dart';
 import 'screens/crud/creat_profile.dart';
-import 'screens/screens.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appTheme,
-      home: ProfileScreen(),
+      home: CreatProfile(),
     );
   }
 }

@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'my-network-7345e.appspot.com',
     iosBundleId: 'com.example.myNetworkApp',
   );
+
 }
