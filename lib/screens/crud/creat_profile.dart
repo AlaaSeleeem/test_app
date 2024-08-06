@@ -117,14 +117,15 @@ class CreatProfile extends StatelessWidget {
                       titleStyle: h5Bold,
                       action: () async {
                         if (formKey.currentState!.validate()) {
+                          var ref =FirebaseFirestore.instance
+                              .collection('users').doc();
                           var user = {
+                            'ID': ref.id,
                             'name': name.text,
                             'phone': phoneNumber.text
                           };
-                          await FirebaseFirestore.instance
-                              .collection('users')
-                              .doc('Alaa')
-                              .set(user);
+                          await
+                              ref.set(user);
                         }
                       },
                       buttonWidth: double.infinity,
