@@ -40,6 +40,6 @@ class Onboarding1Screen extends StatelessWidget {
                 title: 'Next',
                 action: () {
                   goTO(context: context, screen: Onboarding2Screen());
-                })));
+                }, onPressed: () {  },)));
   }
 }

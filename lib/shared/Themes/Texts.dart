@@ -30,7 +30,7 @@ var h4Bold = TextStyle(
 var h5Bold = TextStyle(
     color: white, fontSize: 23, height: 1.4, fontWeight: FontWeight.bold);
 var title1Bold = TextStyle(
-    color: white, fontSize: 19, height: 1.4, fontWeight: FontWeight.bold);
+    color: black, fontSize: 19, height: 1.4, fontWeight: FontWeight.bold);
 var title2Bold = TextStyle(
     color: white, fontSize: 16, height: 1.4, fontWeight: FontWeight.bold);
 var bodyBold = TextStyle(
