@@ -117,15 +117,15 @@ class CreatProfile extends StatelessWidget {
                       titleStyle: h5Bold,
                       action: () async {
                         if (formKey.currentState!.validate()) {
-                          var ref =FirebaseFirestore.instance
-                              .collection('users').doc();
+                          var ref = FirebaseFirestore.instance
+                              .collection('users')
+                              .doc();
                           var user = {
                             'ID': ref.id,
                             'name': name.text,
                             'phone': phoneNumber.text
                           };
-                          await
-                              ref.set(user);
+                          await ref.set(user);
                         }
                       },
                       buttonWidth: double.infinity,
@@ -138,3 +138,18 @@ class CreatProfile extends StatelessWidget {
     );
   }
 }
+
+class MyUser {
+  String name ;
+  String phoneNumber ;
+  String img ;
+  Map<String,dynamic>socialMediaPlatforms;
+  MyUser({
+    this.name= "",
+    this.img= "",
+    this.phoneNumber= "",
+    this.socialMediaPlatforms=const{},});
+
+  }
+
+

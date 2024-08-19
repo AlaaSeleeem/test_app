@@ -10,7 +10,7 @@ var appTheme = ThemeData(
     ),
     floatingActionButtonTheme:
         FloatingActionButtonThemeData(backgroundColor: orange),
-    scaffoldBackgroundColor: navy,
+    scaffoldBackgroundColor: white,
     textTheme: TextTheme(
       displayLarge: h1,
       displayMedium: h2,

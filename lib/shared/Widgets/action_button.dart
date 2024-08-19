@@ -10,7 +10,7 @@ class ActionButton extends StatelessWidget {
       this.buttonColor,
       this.buttonWidth,
       this.buttonHight,
-      this.titleStyle});
+      this.titleStyle, required Null Function() onPressed, required String text});
   String title;
   Color? buttonColor;
   Function() action;
